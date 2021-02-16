@@ -34,8 +34,14 @@
           <button
               mat-button
               color="primary"
+              (click)="
+              openDetailDialog(
+                movie.Title,
+                movie.Description,
+                movie.Release
+              )"
           >
-              Synopsis
+              Detail
           </button>
           <mat-icon>favorite_border</mat-icon>
       </mat-card-actions>

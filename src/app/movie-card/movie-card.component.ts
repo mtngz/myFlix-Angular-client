@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { GetAllMoviesService } from "../fetch-api-data.service";
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
 import { MoviePhaseComponent } from "../movie-phase/movie-phase.component";
+import { MovieDetailComponent } from "../movie-detail/movie-detail.component";
 
 @Component({
   selector: 'app-movie-card',
@@ -26,6 +27,18 @@ getMovies(): void {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  openDetailDialog(
+    Title: string,
+    Description: string,
+    Release: string
+  ): void {
+    this.dialog.open(MovieDetailComponent, {
+      data: { Title, Description, Release },
+      width: '600px',
+      height: '250px',
     });
   }
 
