@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from "./user-login-form/user-login-form.component";
 import { MatDialog } from '@angular/material/dialog';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 @Component({
   selector: 'app-root',
@@ -20,10 +21,16 @@ export class AppComponent {
     width: '280px'
     });
   }
-// This is function that will open the dialog when login button is clicked
+// This is the function that will open the dialog when login button is clicked
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
       width: '280px'
+    });
+  }
+// This is the function that will open the dialog when all Movies button is clicked
+  openMoviesDialog(): void {
+    this.dialog.open(MovieCardComponent, {
+      width: '500px'
     });
   }
 }
