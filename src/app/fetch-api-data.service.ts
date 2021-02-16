@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 // Declaring the api url that will provide data for the client app
-const apiUrl = 'https://marvelix.herokuapp.com';
+const apiUrl = 'https://marvelix.herokuapp.com/';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ const apiUrl = 'https://marvelix.herokuapp.com';
 export class UserRegistrationService {
   // Inject the HttpClient module to the constructor params
   // This will provide HttpClient to the entire class, making it available via this.http
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
@@ -43,7 +43,7 @@ export class UserRegistrationService {
 })
 export class UserLoginService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // making the api call to the user login endpoint
   public userLogin(userDetails: any): Observable<any> {
@@ -72,7 +72,7 @@ export class UserLoginService {
 })
 export class GetAllMoviesService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // making the api call to the get all movies endpoint
   getAllMovies(): Observable<any> {
@@ -108,7 +108,7 @@ export class GetAllMoviesService {
   providedIn: 'root'
 })
 export class GetSingleMovieService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // making the api call to get single movie information
   getSingleMovie(): Observable<any> {
@@ -145,7 +145,7 @@ export class GetSingleMovieService {
   providedIn: 'root'
 })
 export class GetDirectorService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   //making the api call to get director data
   getDirector(): Observable<any> {
@@ -182,7 +182,7 @@ export class GetDirectorService {
   providedIn: 'root'
 })
 export class GetPhaseService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   //making the api call to get phase data
   getPhase(): Observable<any> {
@@ -219,7 +219,7 @@ export class GetPhaseService {
   providedIn: 'root'
 })
 export class GetUserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   //making the api call to get user data by username
   getUser(): Observable<any> {
@@ -256,7 +256,7 @@ export class GetUserService {
   providedIn: 'root'
 })
 export class GetFavoriteMoviesService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // making the api call to get a user's favorite movies
   getFavoriteMovies(): Observable<any> {
@@ -293,7 +293,7 @@ export class GetFavoriteMoviesService {
   providedIn: 'root'
 })
 export class AddFavoriteMovieService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // making the api call to add a movie to a user's list of favorites
   addFavoriteMovie(): Observable<any> {
@@ -330,7 +330,7 @@ export class AddFavoriteMovieService {
   providedIn: 'root'
 })
 export class EditUserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // making the api call to edit a user's information
   editUser(): Observable<any> {
@@ -367,7 +367,7 @@ export class EditUserService {
   providedIn: 'root'
 })
 export class DeleteUserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // making the api call to delete a user
   deleteUser(): Observable<any> {
@@ -404,7 +404,7 @@ export class DeleteUserService {
   providedIn: 'root'
 })
 export class DeleteFavoriteMovieService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // making the api call to add a movie to a user's list of favorites
   deleteFavoriteMovie(): Observable<any> {
