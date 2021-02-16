@@ -7,7 +7,7 @@ import { GetAllMoviesService } from "../fetch-api-data.service";
   styleUrls: ['./movie-card.component.scss']
 })
 
-export class MovieCardComponent {
+export class MovieCardComponent implements OnInit {
   movies: any[] = [];
   constructor(public fetchApiData: GetAllMoviesService) { }
 
