@@ -9,6 +9,11 @@
           <button
               mat-button
               color="primary"
+              (click)="
+              openPhaseDialog(
+                movie.Phase.Name,
+                movie.Phase.Description
+              )"
           >
               Phase
           </button>

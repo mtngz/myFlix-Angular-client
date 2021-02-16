@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { GetAllMoviesService } from "../fetch-api-data.service";
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
+import { MoviePhaseComponent } from "../movie-phase/movie-phase.component";
 
 @Component({
   selector: 'app-movie-card',
@@ -25,6 +26,17 @@ getMovies(): void {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  openPhaseDialog(
+    Name: string,
+    Description: string
+  ): void {
+    this.dialog.open(MoviePhaseComponent, {
+      data: { Name, Description },
+      width: '600px',
+      height: '250px',
     });
   }
 
