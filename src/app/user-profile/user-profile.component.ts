@@ -39,8 +39,9 @@ export class UserProfileComponent implements OnInit {
     console.log(user);
 
     this.fetchApiDataUser.getUser().subscribe((resp: any) => {
-      this.favoriteMoviesIDs = resp.favoriteMovies;
-      console.log(this.favoriteMoviesIDs);
+      this.favoriteMoviesIDs = resp.Favorites;
+      console.log(resp);
+      //console.log(this.favoriteMoviesIDs);
       return this.favoriteMovies;
     });
     setTimeout(() => {
