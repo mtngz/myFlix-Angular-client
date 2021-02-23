@@ -1,0 +1,28 @@
+.main-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  //background-image: url("https://i.redd.it/t64tot3sylt21.png");
+  background-color: #000;
+  color: #fff;
+}
+
+.marvelix-brand {
+  background-color: #f0131e;
+  font-weight: 600;
+}
+
+.button-profile {
+  background-color: #ff8b00;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.button-confirmation {
+  background-color: #35b535;
+  color: #fff;
+}

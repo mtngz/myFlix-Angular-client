@@ -1,0 +1,55 @@
+.page-container {
+  background-color: #000;
+  background-size: cover;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 5px 16px;
+}
+
+.card {
+  color: #fff;
+  background-color: #266ef6;
+  width: 16rem;
+  margin-bottom: 30px;
+}
+
+.card-header {
+  width: 256px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.card-subtitle {
+  color: #fff;
+  font-size: 12px;
+}
+
+.button-director {
+  color: #ffd300;
+  padding: 0px;
+  font-size: 12px;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  width: 220px;
+  height: 326px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-detail {
+  width: 64px;
+  height: 36px;
+  color: #ffd300;
+  font-size: 12px;
+}

@@ -1,0 +1,32 @@
+.nav {
+  color: #fff;
+  margin: 5px 16px;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.marvelix-brand {
+  background-color: #f0131e;
+  font-weight: 600;
+}
+
+h1 {
+  margin: 8px 0px;
+}
+
+.button-profile {
+  background-color: #ff8b00;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.button-logout {
+  background-color: #bf00ff;
+  color: #fff;
+}
