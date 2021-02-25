@@ -1,7 +1,7 @@
 <div class="card">
   <h2>{{data.Title}}</h2>
-  <h3>Release date: {{data.Release}}</h3>
+  <p>Release date: {{data.Release | date:'longDate'}}</p>
   <div class="info">
-    <p>{{data.Description}}</p>
+    <h3>{{data.Description}}</h3>
   </div>
 </div>
