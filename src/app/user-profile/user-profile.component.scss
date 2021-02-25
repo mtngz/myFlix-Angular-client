@@ -1,12 +1,15 @@
 .page-container {
-  background-color: #000;
-  background-size: cover;
-  height: 100vh;
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
 .profile-page {
   color: #fff;
   margin: 5px 16px;
+}
+
+.fave-movies-container {
+  margin-top: 20px;
 }
 
 .fave-movies-header {
@@ -67,6 +70,7 @@
 
 .update {
   max-width: 250px;
+  margin: 0 auto;
 }
 
 .form {
