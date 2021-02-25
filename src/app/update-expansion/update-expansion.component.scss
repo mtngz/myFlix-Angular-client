@@ -10,15 +10,11 @@
 
 .fave-movies-container {
   margin-top: 20px;
-  border-top: #fff;
-  border-top-style: solid;
-  border-width: 2px;
 }
 
 .fave-movies-header {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
 }
 
 .card-container {
@@ -62,14 +58,11 @@
 }
 
 .update-container {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
+  background-color: #000;
 }
 
 .update-header {
-  display: flex;
-  justify-content: center;
+  color: #fff;
 }
 
 .update {
@@ -86,4 +79,12 @@
 .card-actions {
   display: flex;
   justify-content: space-around;
+}
+
+.mat-expansion-panel-header-title {
+  color: #fff;
+}
+
+.mat-expansion-panel-header-description {
+  color: #fff;
 }

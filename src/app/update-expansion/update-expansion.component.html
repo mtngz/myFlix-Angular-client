@@ -1,0 +1,67 @@
+<!--<mat-accorion>-->
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" hideToggle class="update-container">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Your Profile
+      </mat-panel-title>
+      <mat-panel-description>
+        {{panelOpenState ? 'You need to log in again after updating. (Click to close)' : 'Click here to update your profile.'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card class="update">
+      <mat-card-content class="update-card-content">
+        <form class="form">
+          <mat-form-field>
+            <mat-hint>Must be at least 5 characters</mat-hint>
+            <input
+              matInput
+              [(ngModel)]="userData.Username"
+              placeholder="Username"
+              type="text"
+              name="Username"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-hint>Must be alphanumeric and at least 5 characters</mat-hint>
+            <input
+              matInput
+              [(ngModel)]="userData.Password"
+              type="password"
+              placeholder="Password"
+              name="Password"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="userData.Email"
+              type="email"
+              placeholder="Email"
+              name="Email"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="userData.Birthday"
+              type="date"
+              placeholder="Birthday"
+              name="Birthday"
+            />
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions class="card-actions">
+        <button mat-button (click)="editUserInfo()" color="basic">
+          Update
+        </button>
+        <button mat-button (click)="openDeleteUserDialog()" color="warn">
+          DELETE Profile
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-expansion-panel>
+<!--</mat-accorion>-->
