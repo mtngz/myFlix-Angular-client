@@ -35,30 +35,15 @@ export class UserProfileComponent implements OnInit {
   }
 
   getFavoriteMovies(): void {
-    const user = localStorage.getItem('user');
-    console.log(user);
-
-    this.fetchApiDataUser.getUser().subscribe((resp: any) => {
-      this.favoriteMoviesIDs = resp.Favorites;
-      console.log(resp);
-      //console.log(this.favoriteMoviesIDs);
-      return this.favoriteMovies;
-    });
-    setTimeout(() => {
-      this.getMovies();
-    }, 200);
-  }
-
-  getMovies(): void {
     this.fetchApiDataMov.getAllMovies().subscribe((resp: any) => {
+      this.fetchApiDataFav.getFavoriteMovies().subscribe((resp: any) => {
+        this.favoriteMoviesIDs = resp.Favorites;
+        console.log(this.favoriteMoviesIDs);
+        this.favoriteMovies = this.movies.filter((movie) => this.favoriteMoviesIDs.includes(movie._id));
+        console.log(this.favoriteMovies);
+      });
       this.movies = resp;
       console.log(this.movies);
-      this.movies.forEach((movie) => {
-        if (this.favoriteMoviesIDs.includes(movie._id))
-        this.favoriteMovies.push(movie);
-      });
-      console.log(this.favoriteMovies);
-      return this.favoriteMovies;
     });
   }
 
