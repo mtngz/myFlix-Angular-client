@@ -7,6 +7,11 @@ import { MAT_DIALOG_DATA } from "@angular/material/dialog";
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent {
+  /**
+   * Called upon creating instance of class
+   * Injects movie title, description and release data into class from movie-card component
+   * @param data type: object with strings for Title, Description and Release
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {

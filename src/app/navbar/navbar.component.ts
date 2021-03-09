@@ -10,6 +10,12 @@ import { GetUserService } from "../fetch-api-data.service";
 })
 export class NavbarComponent implements OnInit {
 
+  /**
+   * Called upon creating instance of class
+   * @param fetchApiDataUser 
+   * @param snackBar 
+   * @param router 
+   */
   constructor(
     public fetchApiDataUser: GetUserService,
     public snackBar: MatSnackBar,
@@ -19,6 +25,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Function to navigate to user's profile component
+   */
   openProfile(): void {
     this.fetchApiDataUser.getUser().subscribe((result) => {
         localStorage.getItem('token')
@@ -34,6 +43,9 @@ export class NavbarComponent implements OnInit {
     });
 }
 
+  /**
+   * function to clear localStorage
+   */
   logoutUser(): void {
     localStorage.clear();
   }

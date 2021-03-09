@@ -14,6 +14,14 @@ export class UpdateExpansionComponent {
   panelOpenState = false;
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' }
 
+  /**
+   * Called when creating instance of class
+   * @param fetchApiDataUser 
+   * @param fetchApiDataEdit 
+   * @param fetchApiDataDelUser 
+   * @param dialog 
+   * @param snackBar 
+   */
   constructor(
     public fetchApiDataUser: GetUserService,
     public fetchApiDataEdit: EditUserService,
@@ -22,6 +30,9 @@ export class UpdateExpansionComponent {
     public snackBar: MatSnackBar,
   ) { }
 
+  /**
+   * Function to edit a user's information
+   */
   editUserInfo(): void {
     this.fetchApiDataEdit.editUser(this.userData).subscribe((result) => {
       console.log(result);
@@ -38,6 +49,9 @@ export class UpdateExpansionComponent {
     });
   }
 
+  /**
+  * Dialog to open delete-user component
+  */
   openDeleteUserDialog(): void {
     this.dialog.open(DeleteUserComponent, {});
   }

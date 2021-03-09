@@ -11,14 +11,23 @@ import { GetUserService, EditUserService, DeleteUserService, GetAllMoviesService
 })
 export class UserProfileComponent implements OnInit {
 
+  /**
+   * Declaration of variables used in functions below
+   */
   movies: any[] = [];
   favoriteMovies: any[] = [];
   favoriteMoviesIDs: any[] = [];
 
+  /**
+   * Called upon creating instance of class
+   * @param fetchApiDataMov 
+   * @param fetchApiDataFav 
+   * @param fetchApiDataDelFav 
+   * @param dialog 
+   * @param snackBar 
+   * @param router 
+   */
   constructor(
-    public fetchApiDataUser: GetUserService,
-    public fetchApiDataEdit: EditUserService,
-    public fetchApiDataDelUser: DeleteUserService,
     public fetchApiDataMov: GetAllMoviesService,
     public fetchApiDataFav: GetFavoriteMoviesService,
     public fetchApiDataDelFav: DeleteFavoriteMovieService,
@@ -28,9 +37,18 @@ export class UserProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    /**
+     * Called upon page load to get data about user's favorite movies
+     * If user's favoriteMovies array is empty, 'No favs yet' is shown,
+     * if there is any ID in the array, data about these movies are returned
+     */
     this.getFavoriteMovies();
   }
 
+  /**
+   * Retrieves all movies form the database. Checks user object to see if the user's favoriteMovies
+   * array has any IDs. Filters the movies with favoriteMoviesID having an ID and passing this to favoriteMovies
+   */
   getFavoriteMovies(): void {
     this.fetchApiDataMov.getAllMovies().subscribe((resp: any) => {
       this.fetchApiDataFav.getFavoriteMovies().subscribe((resp: any) => {
@@ -44,6 +62,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Function removes a movie from user's favorite movies list in database and reloads the DOM
+   * @param id type: string - ID of movie to be deleted from user's favorites
+   */
   deleteFavoriteMovie(id: string): void {
     this.fetchApiDataDelFav.deleteFavoriteMovie(id).subscribe((resp: any) => {
       console.log(resp);

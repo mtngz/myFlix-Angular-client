@@ -13,7 +13,17 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 })
 
 export class MovieCardComponent implements OnInit {
+  /**
+   * Initiate empty array 'movies' for getMovies() call
+   */
   movies: any[] = [];
+  /**
+   * Called upon creating instance of class
+   * @param fetchApiData 
+   * @param fetchApiDataAddFav 
+   * @param dialog 
+   * @param snackBar 
+   */
   constructor(
     public fetchApiData: GetAllMoviesService,
     public fetchApiDataAddFav: AddFavoriteMovieService,
@@ -22,9 +32,16 @@ export class MovieCardComponent implements OnInit {
     ) { }
 
 ngOnInit(): void {
+  /**
+   * Call on page load to get data of all movies from database
+   */
   this.getMovies();
 }
 
+/**
+ * Retrieves all movies from database
+ * @returns this.movies
+ */
 getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -33,6 +50,10 @@ getMovies(): void {
     });
   }
 
+  /**
+   * Function adds a movie to user's FavoriteMovies array
+   * @param id 
+   */
   addFavoriteMovie(id: string): void {
     this.fetchApiDataAddFav.addFavoriteMovie(id).subscribe((resp: any) => {
       console.log(resp);
@@ -42,6 +63,13 @@ getMovies(): void {
     });
   }
 
+  /**
+   * Funtion to open a dialog containing details about the movie
+   * @param Title type: string - Movie Title
+   * @param Description type: string - Movie Description
+   * @param Release txpe: string - Movie Release
+   * @returns MovieDetailComponent in dialog with title, description and release of the movie
+   */
   openDetailDialog(
     Title: string,
     Description: string,
@@ -54,6 +82,12 @@ getMovies(): void {
     });
   }
 
+  /**
+   * Funtion to open a dialog containing details about the phase
+   * @param Name type: string - PHase Name
+   * @param Description type: string - Phase Description
+   * @returns MoviePhaseComponent in dialog with name and description of the phase
+   */
   openPhaseDialog(
     Name: string,
     Description: string
@@ -65,6 +99,14 @@ getMovies(): void {
     });
   }
 
+  /**
+   * Funtion to open a dialog containing details about the director
+   * @param Name type: string - Director Name
+   * @param Bio type: string - Director Bio
+   * @param Birth type: string - Year, director was born
+   * @param Death type: string - Year, director died
+   * @returns MovieDirectorComponent in dialog with name, bio, birth and death of the director
+   */
   openDirectorDialog(
     Name: string,
     Bio: string,

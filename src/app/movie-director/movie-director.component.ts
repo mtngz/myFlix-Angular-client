@@ -8,6 +8,11 @@ import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 })
 
 export class MovieDirectorComponent {
+  /**
+   * Called upon creating instance of class
+   * injects director name, bio, birth and death data into class from movie-card component
+   * @param data type: object with strings for Name, Bio, Birth and Death
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
