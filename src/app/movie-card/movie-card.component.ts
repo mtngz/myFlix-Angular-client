@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { AddFavoriteMovieService, GetAllMoviesService } from "../fetch-api-data.service";
+import { AddFavoriteMovieService, GetAllMoviesService, DeleteFavoriteMovieService, GetUserService, GetFavoriteMoviesService } from "../fetch-api-data.service";
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
 import { MoviePhaseComponent } from "../movie-phase/movie-phase.component";
 import { MovieDetailComponent } from "../movie-detail/movie-detail.component";
@@ -14,19 +14,27 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 
 export class MovieCardComponent implements OnInit {
   /**
-   * Initiate empty array 'movies' for getMovies() call
+   * Declaration of variables used in functions below
    */
   movies: any[] = [];
+  favoriteMovies: any[] = [];
+  favoriteMoviesIDs: any[] = [];
   /**
    * Called upon creating instance of class
    * @param fetchApiData 
    * @param fetchApiDataAddFav 
+   * @param fetchApiDataDelFav
+   * @param fetchApiDataUser
+   * @param fetchApiDataFav
    * @param dialog 
    * @param snackBar 
    */
   constructor(
     public fetchApiData: GetAllMoviesService,
     public fetchApiDataAddFav: AddFavoriteMovieService,
+    public fetchApiDataDelFav: DeleteFavoriteMovieService,
+    public fetchApiDataUser: GetUserService,
+    public fetchApiDataFav: GetFavoriteMoviesService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar
     ) { }
@@ -34,8 +42,10 @@ export class MovieCardComponent implements OnInit {
 ngOnInit(): void {
   /**
    * Call on page load to get data of all movies from database
+   * and the user's favorite movies 
    */
   this.getMovies();
+  this.getFavoriteMovies();
 }
 
 /**
@@ -51,8 +61,25 @@ getMovies(): void {
   }
 
   /**
+   * Retrieves all movies form the database. Checks user object to see if the user's favoriteMovies
+   * array has any IDs. Filters the movies with favoriteMoviesID having an ID and passing this to favoriteMovies
+   */
+  getFavoriteMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+      this.fetchApiDataFav.getFavoriteMovies().subscribe((resp: any) => {
+        this.favoriteMoviesIDs = resp.Favorites;
+        console.log(this.favoriteMoviesIDs);
+        this.favoriteMovies = this.movies.filter((movie) => this.favoriteMoviesIDs.includes(movie._id));
+        console.log(this.favoriteMovies);
+      });
+      this.movies = resp;
+      console.log(this.movies);
+    });
+  }
+
+  /**
    * Function adds a movie to user's FavoriteMovies array
-   * @param id 
+   * @param id type: string - ID of movie to be added to user's favorites
    */
   addFavoriteMovie(id: string): void {
     this.fetchApiDataAddFav.addFavoriteMovie(id).subscribe((resp: any) => {
@@ -60,6 +87,21 @@ getMovies(): void {
       this.snackBar.open('Added to Favorite Movies.', 'OK', {
         duration: 2000
       });
+      this.getFavoriteMovies();
+    });
+  }
+
+    /**
+   * Function removes a movie from user's favorite movies list in database and reloads the DOM
+   * @param id type: string - ID of movie to be deleted from user's favorites
+   */
+  deleteFavoriteMovie(id: string): void {
+    this.fetchApiDataDelFav.deleteFavoriteMovie(id).subscribe((resp: any) => {
+      console.log(resp);
+      this.snackBar.open('Movie has been removed from Favorites.', 'OK', {
+        duration: 5000
+      });
+      this.getFavoriteMovies();
     });
   }
 

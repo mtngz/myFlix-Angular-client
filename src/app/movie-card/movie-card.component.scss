@@ -43,14 +43,22 @@
   margin: 0 auto;
 }
 
-.card-actions {
-  display: flex;
-  justify-content: space-around;
-}
-
 .button-detail {
   width: 64px;
   height: 36px;
   color: #ffd300;
   font-size: 12px;
+  margin: 0;
+}
+
+.button-fav {
+  margin: 0;
+  color: #ffd300;
+}
+
+.card-actions {
+  width: 220px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }

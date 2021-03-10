@@ -72,11 +72,7 @@ export class UserProfileComponent implements OnInit {
       this.snackBar.open('Movie has been removed from Favorites.', 'OK', {
         duration: 5000
       });
-      setTimeout(() => this.router.navigate(['user'])
-        .then(() => {
-          window.location.reload();
-        }), 1500
-      );
+      this.getFavoriteMovies();
     });
   }
 

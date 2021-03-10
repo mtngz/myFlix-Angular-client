@@ -48,6 +48,25 @@
             >
                 Detail
             </button>
+            <ng-container
+            *ngIf="
+              this.favoriteMoviesIDs.includes(movie._id);
+              then favMovie;
+              else selectFav
+            "
+          ></ng-container>
+          <ng-template #favMovie>
+            <button
+              class="button-fav"
+              (click)="deleteFavoriteMovie(movie._id)"
+              mat-button
+            >
+              <mat-icon>
+                favorite
+              </mat-icon>
+            </button>
+          </ng-template>
+          <ng-template #selectFav>
             <button
               class="button-fav"
               (click)="addFavoriteMovie(movie._id)"
@@ -57,6 +76,8 @@
                 favorite_border
               </mat-icon>
             </button>
+          </ng-template>
+
 
         </mat-card-actions>
     </mat-card>
