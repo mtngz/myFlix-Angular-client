@@ -47,6 +47,7 @@ export class UpdateExpansionComponent {
         duration: 5000
       });
     });
+    localStorage.clear();
   }
 
   /**

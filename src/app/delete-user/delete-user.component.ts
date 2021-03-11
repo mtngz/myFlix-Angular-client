@@ -36,22 +36,8 @@ export class DeleteUserComponent {
     this.fetchApiDataDelUser.deleteUser().subscribe((resp: any) => {
       console.log(resp);
     });
-  }
-
-  /**
-   * Funtion to clear the localStorage
-   */
-  logoutUser(): void {
     localStorage.clear();
   }
 
-  /**
-   * Function calling the two functions
-   * deleteUserProfile() and logoutUser()
-   */
-  deleteButton() {
-    this.deleteUserProfile()
-    this.logoutUser()
-  }
 }
 
