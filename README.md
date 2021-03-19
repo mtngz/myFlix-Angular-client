@@ -2,7 +2,7 @@
 
 This project is an Angular application that allows users to get information about movies, genres, and directors. Users can also save movies in their list of favorites and edit details of their profile. This application uses an existing server-side REST API ([https://github.com/mtngz/movie_api](https://github.com/mtngz/movie_api)) and MongoDB database.
 
-### The application is deployed here [https://mtngz.github.io/myFlix-Angular-client/](https://mtngz.github.io/myFlix-Angular-client/).
+### The application is deployed here [https://mean-marvelix.netlify.app/](https://mean-marvelix.netlify.app/).
 
 # Demo
 
