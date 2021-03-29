@@ -6,7 +6,7 @@ This project is an Angular application that allows users to get information abou
 
 # Demo
 
-![Screen recording of project demo]()
+![Screen recording of project demo](docs/assets/images/angular.gif)
 
 # Features
 
